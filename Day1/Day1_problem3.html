@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Cart Counter</title>
+
+    
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .header {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        #cartCount {
+            color: red;
+            font-weight: bold;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background: white;
+        }
+
+        button {
+            padding: 6px 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+
+        .msg {
+            margin-left: 10px;
+            color: green;
+            font-size: 14px;
+        }
+        .product-image {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+     Cart Items: <span id="cartCount">0</span>
+</div>
+
+<div id="productList">
+
+    <div class="product">
+        <h3>Product 1 - Laptop</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTky6xir2t6JlTi05nTq-JwzC_XsNqgzRhJ8Q&s" class="product-image"/>
+        <button class="addBtn">Add to Cart</button>
+        <span class="msg"></span>
+    </div>
+
+    <div class="product">
+        <h3>Product 2 - Mobile</h3>
+        <img src="https://doiqgxrhp4iii.cloudfront.net/A52%20(1).jpg" class="product-image"/>
+        <button class="addBtn">Add to Cart</button>
+        <span class="msg"></span>
+    </div>
+
+    <div class="product">
+        <h3>Product 3 - Headphones</h3>
+        <img src="https://shop.zebronics.com/cdn/shop/files/Zeb-Duke-pic-1.jpg?v=1710569970&width=1200" class="product-image"/>
+        <button class="addBtn">Add to Cart</button>
+        <span class="msg"></span>
+    </div>
+
+    <div class="product">
+        <h3>Product 4 - Smart Watch</h3>
+        <img src="https://gourban.in/cdn/shop/files/Pulse.jpg?v=1749553994&width=2048" class="product-image"/>
+        <button class="addBtn">Add to Cart</button>
+        <span class="msg"></span>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+
+    let count = 0;
+
+    
+    $("#productList").on("click", ".addBtn", function() {
+
+        count++;
+
+        
+        $("#cartCount").text(count);
+
+        
+        $(this).prop("disabled", true);
+
+        
+        $(this).text("Added");
+
+        
+        $(this).attr("data-added", "true");
+
+        
+        $(this).siblings(".msg").text("Added to cart");
+
+    });
+
+});
+</script>
+
+</body>
+</html>

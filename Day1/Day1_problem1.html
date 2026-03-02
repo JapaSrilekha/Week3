@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback Form</title>
+
+    
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        .box {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+
+        input[type="button"] {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #msg {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Student Feedback Form</h2>
+
+    <form action="">
+
+        <label>Name:</label>
+        <input type="text" id="name">
+
+        <label>Email:</label>
+        <input type="text" id="email">
+
+        <label>Course Rating:</label>
+        <select id="rating">
+            <option value="">Select Rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+        </select>
+
+        <label>Comments:</label>
+        <textarea id="comments"></textarea>
+
+        <input type="button" id="btn" value="Submit Feedback">
+
+    </form>
+
+    <p id="msg"></p>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+          
+$(document).ready(function () {
+
+    $("#btn").click(function () {
+
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+
+        // If both are empty
+        if (name == "" && email == "") {
+
+            $("#msg")
+                .text("Please enter your name and email.")
+                .css("color", "red");
+        }
+
+        // If only name is empty
+        else if (name == "") {
+
+            $("#msg")
+                .text("Please enter your name.")
+                .css("color", "red");
+        }
+
+        // If only email is empty
+        else if (email == "") {
+
+            $("#msg")
+                .text("Please enter your email.")
+                .css("color", "red");
+        }
+
+        // If everything is valid
+        else {
+
+            $("#msg")
+                .text("Feedback submitted successfully!")
+                .css("color", "green");
+
+            // Clear form fields
+            $("#name").val("");
+            $("#email").val("");
+            $("#rating").val("");
+            $("#comments").val("");
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
